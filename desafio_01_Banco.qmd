@@ -1,0 +1,58 @@
+---
+title: "Desafio 01 - Banco"
+author: "ME315"
+format: html
+editor: visual
+---
+
+[Link do Google Class A+B](https://classroom.google.com/c/NzAwMzM0MjU5NzIw)
+
+Utilize o conjunto de dados `flights.csv.zip` disponível em <https://www.kaggle.com/usdot/flight-delays> e carregue os dados utilizando as funções:
+
+-   `read.csv()` do pacote `base` do **R**
+-   `read_csv()` do pacote `readr` do **R**
+-   `read_csv()` do `pandas` no **Python**
+
+Qual dessas três formas de carregar os dados é mais rápida? (calcule o tempo exato que demorou cada método em carregar os dados no seu computador)
+
+<center>**Fim do desafio:** 10h30m</center>
+
+## Observação: no link acima, baixar o arquivo `flights.csv`, zipar ele (e salvar como `flights.csv.zip`).
+
+Criar um ambiente virtual 'env_me315' e usar ele quando for utilizar Python.
+
+```{r}
+#library(reticulate)
+#virtualenv_create("env_me315")
+```
+
+```{r}
+#use_virtualenv("env_me315")
+#py_install("pandas", envname = "env_me315")
+```
+
+```{r}
+library(readr)
+ini <- Sys.time()
+dados <- read_csv("~/Documents/dados/flights.csv")
+fim <- Sys.time()
+fim - ini
+
+```
+
+```{r}
+library(readr)
+ini <- Sys.time()
+dados <- read_csv("~/Documents/dados/flights.csv")
+fim <- Sys.time()
+fim - ini
+```
+
+```{python}
+import time
+import pandas as pd
+ini = time.time()
+dados = pd.read_csv("~/Documents/dados/flights.csv", compression="zip", header=0, sep=",", low_memory=False)
+fim = time.time()
+fim - ini
+```
